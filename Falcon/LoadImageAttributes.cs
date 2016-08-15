@@ -13,7 +13,7 @@ using Falcon.Properties;
 
 namespace Falcon
 {
-    sealed class ShowImageAttributes : GH_ComponentAttributes
+    sealed class LoadImageAttributes : GH_ComponentAttributes
     {
         private static Size minimumsize = new Size(100, 100);
         private static Size maximumsize = new Size(800, 800);
@@ -29,7 +29,7 @@ namespace Falcon
         {
             get
             {
-                return ShowImageAttributes.minimumsize;
+                return LoadImageAttributes.minimumsize;
             }
         }
 
@@ -37,7 +37,7 @@ namespace Falcon
         {
             get
             {
-                return ShowImageAttributes.pad;
+                return LoadImageAttributes.pad;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Falcon
         {
             get
             {
-                return ShowImageAttributes.maximumsize;
+                return LoadImageAttributes.maximumsize;
             }
         }
 
@@ -70,10 +70,10 @@ namespace Falcon
             }
         }
 
-        internal ShowImageAttributes(ShowImage component)
+        internal LoadImageAttributes(LoadImage component)
         : base((IGH_Component) component)
             {
-            this.Bounds = new RectangleF(this.Pivot, (SizeF)ShowImageAttributes.defaultsize);
+            this.Bounds = new RectangleF(this.Pivot, (SizeF)LoadImageAttributes.defaultsize);
             }
 
         protected override void Layout()
@@ -198,7 +198,7 @@ namespace Falcon
             capsule.Render(graphics, this.Selected, this.Owner.Locked, false);
             if (this.DocObject != null)
             {
-                ShowImage loadImage = this.DocObject as ShowImage;
+                LoadImage loadImage = this.DocObject as LoadImage;
                 if (loadImage != null && loadImage.WindowsBitmap != null)
                 {
                     TextureBrush textureBrush = new TextureBrush(Resources.checkerpattern);
@@ -223,10 +223,10 @@ namespace Falcon
 
         public override GH_ObjectResponse RespondToMouseDoubleClick(GH_Canvas sender, GH_CanvasMouseEvent e)
         {
-           if (e.Button != System.Windows.Forms.MouseButtons.Left) return base.RespondToMouseDoubleClick(sender, e);
+            if (e.Button != System.Windows.Forms.MouseButtons.Left) return base.RespondToMouseDoubleClick(sender, e);
             if (Bounds.Contains(e.CanvasLocation))
             {
-                this.Bounds = new RectangleF(this.Pivot, (SizeF)ShowImageAttributes.defaultsize);
+                this.Bounds = new RectangleF(this.Pivot, (SizeF)LoadImageAttributes.defaultsize);
                 this.ExpireLayout();
                 this.DocObject.OnDisplayExpired(true);
             }

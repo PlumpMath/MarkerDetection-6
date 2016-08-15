@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
+using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Special;
+using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
 
 namespace Falcon
@@ -10,13 +13,8 @@ namespace Falcon
     public class ShowImage : GH_Component
     {
         public Bitmap WindowsBitmap;
-        /// <summary>
-        /// Each implementation of GH_Component must provide a public 
-        /// constructor without any arguments.
-        /// Category represents the Tab in which the component will appear, 
-        /// Subcategory the panel. If you use non-existing tab or panel names, 
-        /// new tabs/panels will automatically be created.
-        /// </summary>
+        private GH_Document mydoc;
+
         public ShowImage()
           : base("ShowImage", "ShowImage",
               "Show image",
@@ -48,6 +46,26 @@ namespace Falcon
         /// to store data in output parameters.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            GH_ObjectWrapper destination = new GH_ObjectWrapper();
+            if (!DA.GetData<GH_ObjectWrapper>(0, ref destination))
+                return;
+            try
+            {
+                this.WindowsBitmap = destination.Value as Bitmap;
+            }
+            catch (InvalidCastException ex)
+            {
+                this.AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, ex.Message.ToString());
+            }
+            if (this.WindowsBitmap == null)
+                return;
+            DA.SetData(0, (object)this.WindowsBitmap);
+        }
+
+        // disable right click menu
+        public override bool AppendMenuItems(ToolStripDropDown iMenu)
+        {
+            return true;
         }
 
         /// <summary>
@@ -74,9 +92,41 @@ namespace Falcon
             get { return new Guid("{fe5f9a38-dcaa-4aef-af7c-4ce3fbd3d020}"); }
         }
 
+        // modify the order of components in GH,otherwise ordered alphabatically
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.primary;
+            }
+        }
+
         public override void CreateAttributes()
         {
-            m_attributes = new ShowImageAttributes(this);
+            m_attributes = (IGH_Attributes)new ShowImageAttributes(this);
+        }
+
+        public void UnregisterEvents()
+        {
+            Instances.DocumentServer.DocumentRemoved -= new GH_DocumentServer.DocumentRemovedEventHandler(this.OnDocRemoved);
+            if (this.mydoc != null)
+                this.mydoc.ObjectsDeleted -= new GH_Document.ObjectsDeletedEventHandler(this.ObjectsDeleted);
+            this.mydoc = (GH_Document)null;
+        }
+
+        public void OnDocRemoved(GH_DocumentServer ds, GH_Document doc)
+        {
+            GH_Document ghDocument = this.OnPingDocument();
+            if (ghDocument != null && !object.ReferenceEquals((object)ghDocument, (object)doc))
+                return;
+            this.UnregisterEvents();
+        }
+
+        public void ObjectsDeleted(object sender, GH_DocObjectEventArgs e)
+        {
+            if (!e.Objects.Contains((IGH_DocumentObject)this))
+                return;
+            this.UnregisterEvents();
         }
     }
 
