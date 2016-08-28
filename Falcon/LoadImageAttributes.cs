@@ -226,7 +226,11 @@ namespace Falcon
             if (e.Button != System.Windows.Forms.MouseButtons.Left) return base.RespondToMouseDoubleClick(sender, e);
             if (Bounds.Contains(e.CanvasLocation))
             {
-                this.Bounds = new RectangleF(this.Pivot, (SizeF)LoadImageAttributes.defaultsize);
+                LoadImage thisloadImage = this.DocObject as LoadImage;
+                if (thisloadImage == null)
+                    this.Bounds = new RectangleF(this.Pivot, (SizeF)LoadImageAttributes.defaultsize);
+                else
+                    this.Bounds = new RectangleF(this.Pivot, (SizeF)thisloadImage.WindowsBitmap.Size);
                 this.ExpireLayout();
                 this.DocObject.OnDisplayExpired(true);
             }

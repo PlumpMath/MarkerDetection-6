@@ -1,0 +1,7 @@
+The application requires:
+ * .NET framework 4.0;
+ * XNA framework 4.0.
+ 
+ For a quick start you can copy "glyph recognition studio.cfg" into "AForge" in
+ user's local folder. For example, on Windows Vista it may be something like:
+ C:\Users\<user>\AppData\Local\AForge

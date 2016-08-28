@@ -34,7 +34,7 @@ namespace MarkerDetection
             {
                 comboBox1.Items.Add(videoDevice.Name);
             }
-            comboBox1.SelectedItem = 1;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,11 +59,11 @@ namespace MarkerDetection
         {
             Bitmap image = (Bitmap)eventArgs.Frame.Clone();
             pictureBox1.Image = image;
-            List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(image);
-            foreach (ExtractedGlyphData glyphData in glyphs)
-            {
-                label1.Text = "marker detected";
-            }
+            //List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(image);
+            //foreach (ExtractedGlyphData glyphData in glyphs)
+            //{
+            //    label1.Text = "marker detected";
+            //}
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

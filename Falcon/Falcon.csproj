@@ -41,6 +41,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AForge\Release\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AForge\Release\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AForge\Release\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AForge\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\AForge\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision.GlyphRecognition">
+      <HintPath>..\Lib\AForge.Vision.GlyphRecognition.dll</HintPath>
+    </Reference>
+    <Reference Include="Firefly.Bridge">
+      <HintPath>..\..\..\..\AppData\Roaming\Grasshopper\Libraries\Firefly.Bridge.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -62,17 +88,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ftoimg.cs" />
     <Compile Include="LoadImage.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WebcamSource.cs" />
+    <Compile Include="WebcamStream.cs" />
     <Compile Include="ShowImage.cs" />
     <Compile Include="FalconInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoadImageAttributes.cs" />
     <Compile Include="ShowImageAttributes.cs" />
+    <Compile Include="WebcamStreamAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -85,6 +115,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\showimage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\loadimage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\ftoimg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

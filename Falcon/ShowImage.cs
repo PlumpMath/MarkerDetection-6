@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Falcon.Properties;
 using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Special;
@@ -78,7 +79,7 @@ namespace Falcon
             {
                 // You can add image files to your project resources and access them like this:
                 //return Resources.IconForThisComponent;
-                return null;
+                return Resources.showimage;
             }
         }
 
@@ -89,7 +90,7 @@ namespace Falcon
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("{fe5f9a38-dcaa-4aef-af7c-4ce3fbd3d020}"); }
+            get { return new Guid("{e89dcfc7-eaf4-4fc7-9685-8c258bae300e}"); }
         }
 
         // modify the order of components in GH,otherwise ordered alphabatically

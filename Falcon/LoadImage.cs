@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Falcon.Properties;
 
 namespace Falcon
 {
@@ -95,7 +96,7 @@ namespace Falcon
         {
             get
             {
-                return null;
+                return Resources.loadimage;
             }
         }
         public override Guid ComponentGuid
