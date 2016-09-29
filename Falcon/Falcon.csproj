@@ -13,6 +13,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,25 +46,32 @@
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\AForge\Release\AForge.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\AForge\Release\AForge.Imaging.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\AForge\Release\AForge.Math.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\AForge\Release\AForge.Video.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\AForge\Release\AForge.Video.DirectShow.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Vision.GlyphRecognition">
-      <HintPath>..\Lib\AForge.Vision.GlyphRecognition.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Firefly.Bridge">
       <HintPath>..\..\..\..\AppData\Roaming\Grasshopper\Libraries\Firefly.Bridge.dll</HintPath>
@@ -70,6 +79,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="RhinoCommon">
       <SpecificVersion>False</SpecificVersion>
@@ -88,13 +98,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FalconEye.cs" />
     <Compile Include="Ftoimg.cs" />
+    <Compile Include="GlyphClasses\ExtractedGlyphData.cs" />
+    <Compile Include="GlyphClasses\Glyph.cs" />
+    <Compile Include="GlyphClasses\GlyphDatabase.cs" />
+    <Compile Include="GlyphClasses\GlyphImageProcessor.cs" />
+    <Compile Include="GlyphClasses\GlyphRecognizer.cs" />
+    <Compile Include="GlyphClasses\GlyphTracker.cs" />
+    <Compile Include="GlyphClasses\GlyphVisualizationData.cs" />
+    <Compile Include="GlyphClasses\SquareBinaryGlyphRecognizer.cs" />
+    <Compile Include="GlyphClasses\VisualizationType.cs" />
     <Compile Include="LoadImage.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="utils\Marker.cs" />
+    <Compile Include="utils\Utils.cs" />
     <Compile Include="WebcamSource.cs" />
     <Compile Include="WebcamStream.cs" />
     <Compile Include="ShowImage.cs" />
@@ -111,7 +133,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\checkerpattern.jpg" />
+    <None Include="Resources\NyID.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NoImage.png" />
@@ -151,5 +175,6 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <StartArguments>
     </StartArguments>
     <StartAction>Program</StartAction>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 </Project>

@@ -8,7 +8,6 @@ using AForge.Video.DirectShow;
 using AForge.Imaging;
 using AForge.Math;
 using AForge;
-using AForge.Vision.GlyphRecognition;
 
 namespace Falcon
 {

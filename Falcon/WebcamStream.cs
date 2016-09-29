@@ -19,22 +19,7 @@ namespace Falcon
     public abstract class WebcamStream : GH_Component
     {
         
-        private GH_Document mydoc;
-        public WebcamSource theWebcamSource;
-        public abstract Bitmap WindowsBitmap { get; set; }
-        public bool speed1_state;
-        public bool speed2_state;
-        public bool speed3_state;
-        public bool speed4_state;
-        public bool Res0_state;
-        public bool Res1_state;
-        public bool Res2_state;
-        public bool Res3_state;
-        public bool Res4_state;
-        public bool Res5_state;
-        public bool Res6_state;
-        private int m_refresh;
-        public bool Paused;
+        
         /*
         private void Menu_ItemClicked1(object sender, EventArgs e)
         {

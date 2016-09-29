@@ -101,6 +101,15 @@ namespace Falcon.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{&quot;ID&quot;:&quot;1&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000011000111110001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;2&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000101100111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;3&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000001000111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;4&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000110100111110001110001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;5&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000010100111100001110001010100000000&quot;, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NyID {
+            get {
+                return ResourceManager.GetString("NyID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap showimage {

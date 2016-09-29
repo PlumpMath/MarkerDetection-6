@@ -70,6 +70,7 @@ namespace GlyphRecognitionStudio
 
             glyphsImageList.ImageSize = new Size( 32, 32 );
             glyphList.LargeImageList = glyphsImageList;
+            
 
             bordersToolStripMenuItem.Tag = VisualizationType.BorderOnly;
             namesToolStripMenuItem.Tag   = VisualizationType.Name;

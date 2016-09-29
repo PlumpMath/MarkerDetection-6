@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkerDetection", "MarkerDetection\MarkerDetection.csproj", "{9BCBF2FE-CEBA-4825-BDCA-A948D3898A6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseMaker", "MarkerDetection\DataBaseMaker.csproj", "{9BCBF2FE-CEBA-4825-BDCA-A948D3898A6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falcon", "Falcon\Falcon.csproj", "{214D6485-EE4C-4DE3-A74C-47F8ED10CF4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMarkerDetect", "WindowsFormsApplication1\SimpleMarkerDetect.csproj", "{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{214D6485-EE4C-4DE3-A74C-47F8ED10CF4F}.Debug64|Any CPU.Build.0 = Debug64|Any CPU
 		{214D6485-EE4C-4DE3-A74C-47F8ED10CF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{214D6485-EE4C-4DE3-A74C-47F8ED10CF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug32|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug32|Any CPU.Build.0 = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug64|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Debug64|Any CPU.Build.0 = Debug|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B39F5A43-5F1F-47AC-9427-39601ACC0CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

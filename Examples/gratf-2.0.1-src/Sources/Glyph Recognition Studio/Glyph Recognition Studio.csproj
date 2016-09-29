@@ -84,6 +84,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xna3DViewer">
+      <HintPath>..\..\..\gratf-2.0.1-bin\Glyph Recognition Studio\Xna3DViewer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutForm.cs">
@@ -169,10 +172,6 @@
     <ProjectReference Include="..\GlyphRecognition\GlyphRecognition.csproj">
       <Project>{0998FAFD-4C8F-4C04-A5CC-03B856C804AD}</Project>
       <Name>GlyphRecognition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Xna3DViewer\Xna3DViewer.csproj">
-      <Project>{282759F8-B913-412E-8B2F-3B6A2A84AB53}</Project>
-      <Name>Xna3DViewer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
