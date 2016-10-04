@@ -16,6 +16,13 @@ namespace Falcon
         /// <summary>
         /// Initializes a new instance of the FalconEye class.
         /// </summary>
+        Bitmap bmap = null;
+        object sync = new object();
+        private GlyphImageProcessor imageProcessor = new GlyphImageProcessor();
+        private List<MarkerData> markers;
+        private List<string> markerIDs;
+        private List<Matrix> transformations;
+
         public FalconEye()
           : base("FalconEye", "FalconEye",
               "FalconEye, the marker detector",
@@ -36,7 +43,8 @@ namespace Falcon
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Number", "N", "", GH_ParamAccess.item);
+            pManager.AddTextParameter("MarkerID", "ID", "", GH_ParamAccess.list);
+            pManager.AddMatrixParameter("Transformation", "T", "", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -45,15 +53,11 @@ namespace Falcon
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Bitmap bmap = null;
-            int number = 0;
             if (!DA.GetData<Bitmap>(0, ref bmap)) return;
-
-            
-            GlyphImageProcessor imageProcessor = new GlyphImageProcessor();
-            object sync = new object();
-
-            
+            markers = new List<MarkerData>();
+            markerIDs = new List<string>();
+            transformations = new List<Matrix>();
+           
             //set this database to imageprocessor
             imageProcessor.GlyphDatabase = Utils.loadDatabase();
 
@@ -62,37 +66,12 @@ namespace Falcon
             imageProcessor.GlyphSize = 7;
             imageProcessor.VisualizationType = VisualizationType.Name;
 
-            //detect markers
-            if (bmap.PixelFormat == PixelFormat.Format8bppIndexed)
-            {
-                // convert image to RGB if it is grayscale
-                GrayscaleToRGB filter = new GrayscaleToRGB();
-
-                Bitmap temp = filter.Apply(bmap);
-                bmap.Dispose();
-                bmap = temp;
-
-            }
-
-            lock (sync)
-            {
-                int a = 0;
-                List<ExtractedGlyphData> glyphs = imageProcessor.ProcessImage(bmap);
-                foreach (ExtractedGlyphData glyph in glyphs)
-                {
-
-                    if ((glyph.RecognizedGlyph != null) &&
-                         (glyph.IsTransformationDetected))
-                    {
-                        a++;
-                    }
-                }
-                number = a;
-
-            }
+            detectMarkers();
 
 
-            DA.SetData(0, number);
+            DA.SetDataList(0, markerIDs);
+            DA.SetDataList(1, transformations);
+
         }
 
         /// <summary>
@@ -114,6 +93,36 @@ namespace Falcon
         public override Guid ComponentGuid
         {
             get { return new Guid("{b8c7f4e4-d7eb-4ed7-b28e-2e68946d86f0}"); }
+        }
+
+        public void detectMarkers()
+        {
+            //detect markers
+            if (bmap.PixelFormat == PixelFormat.Format8bppIndexed)
+            {
+                // convert image to RGB if it is grayscale
+                GrayscaleToRGB filter = new GrayscaleToRGB();
+
+                Bitmap temp = filter.Apply(bmap);
+                bmap.Dispose();
+                bmap = temp;
+            }
+
+            lock (sync)
+            {
+                List<ExtractedGlyphData> glyphs = imageProcessor.ProcessImage(bmap);
+                foreach (ExtractedGlyphData glyph in glyphs)
+                {
+
+                    if ((glyph.RecognizedGlyph != null) &&
+                         (glyph.IsTransformationDetected))
+                    {
+                        MarkerData m= new MarkerData(glyph.RecognizedGlyph.Name,glyph.TransformationMatrix);
+                        markerIDs.Add(m.ID);
+                        transformations.Add(m.TransformationMatrix);
+                    }
+                }
+            }
         }
     }
 }

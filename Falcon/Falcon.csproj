@@ -78,6 +78,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -96,10 +97,11 @@
       <HintPath>C:\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\GH_IO.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FalconEye.cs" />
-    <Compile Include="Ftoimg.cs" />
+    <Compile Include="FtoBitmap.cs" />
     <Compile Include="GlyphClasses\ExtractedGlyphData.cs" />
     <Compile Include="GlyphClasses\Glyph.cs" />
     <Compile Include="GlyphClasses\GlyphDatabase.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="GlyphClasses\SquareBinaryGlyphRecognizer.cs" />
     <Compile Include="GlyphClasses\VisualizationType.cs" />
     <Compile Include="LoadImage.cs" />
+    <Compile Include="MarkerData.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,7 +120,15 @@
     </Compile>
     <Compile Include="utils\Marker.cs" />
     <Compile Include="utils\Utils.cs" />
-    <Compile Include="WebcamSource.cs" />
+    <Compile Include="utils\VideoCaptureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utils\VideoCaptureForm.Designer.cs">
+      <DependentUpon>VideoCaptureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utils\VideoSourcePlayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebcamStream.cs" />
     <Compile Include="ShowImage.cs" />
     <Compile Include="FalconInfo.cs" />
@@ -130,6 +141,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utils\VideoCaptureForm.resx">
+      <DependentUpon>VideoCaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utils\VideoSourcePlayer.resx">
+      <DependentUpon>VideoSourcePlayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

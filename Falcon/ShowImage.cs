@@ -15,6 +15,8 @@ namespace Falcon
     {
         public Bitmap WindowsBitmap;
         private GH_Document mydoc;
+        // object used for synchronization
+        private object sync = new object();
 
         public ShowImage()
           : base("ShowImage", "ShowImage",
@@ -60,7 +62,8 @@ namespace Falcon
             }
             if (this.WindowsBitmap == null)
                 return;
-            DA.SetData(0, (object)this.WindowsBitmap);
+            DA.SetData(0, (object) this.WindowsBitmap);
+
         }
 
         // disable right click menu

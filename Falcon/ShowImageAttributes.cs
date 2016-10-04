@@ -198,15 +198,15 @@ namespace Falcon
             capsule.Render(graphics, this.Selected, this.Owner.Locked, false);
             if (this.DocObject != null)
             {
-                ShowImage loadImage = this.DocObject as ShowImage;
-                if (loadImage != null && loadImage.WindowsBitmap != null)
+                ShowImage showImage = this.DocObject as ShowImage;
+                if (showImage != null && showImage.WindowsBitmap != null)
                 {
                     TextureBrush textureBrush = new TextureBrush(Resources.checkerpattern);
                     textureBrush.WrapMode = WrapMode.Tile;
                     graphics.FillRectangle((Brush)textureBrush, this.InnerRectangle);
                     textureBrush.Dispose();
                     graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                    graphics.DrawImage((Image)loadImage.WindowsBitmap, this.InnerRectangle);
+                    graphics.DrawImage((Image)showImage.WindowsBitmap, this.InnerRectangle);
                 }
                 else
                 {

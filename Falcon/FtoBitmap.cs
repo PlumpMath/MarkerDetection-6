@@ -7,11 +7,11 @@ using Firefly_Bridge;
 
 namespace Falcon
 {
-    public class Ftoimg : GH_Component
+    public class FtoBitmap : GH_Component
     {
 
-        public Ftoimg()
-          : base("Ftoimg", "Ftoimg",
+        public FtoBitmap()
+          : base("FtoBitmap", "FtoBitmap",
               "convert Firefly image into standard system bitmap",
               "Falcon", "Vision")
         {
