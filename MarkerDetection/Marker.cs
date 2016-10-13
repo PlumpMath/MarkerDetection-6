@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace DataBaseMaker
+namespace MarkerDetection
 {
     public struct MarkerPlainData
     {

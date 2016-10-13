@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AForge.Video;
 using System.Web.Script.Serialization;
+using System.Windows.Forms;
 
-
-namespace DataBaseMaker
+namespace MarkerDetection
 {
     public partial class Form1 : Form
     {
@@ -23,7 +15,6 @@ namespace DataBaseMaker
         public Form1()
         {
             InitializeComponent();
-            //Marker _marker = new Marker(new Bitmap(img), 7, 1);
             textBox1.Font = new Font(FontFamily.GenericSerif, 10, FontStyle.Bold);
             markers = new List<Marker>();
             MarkerPlainDatas = new List<MarkerPlainData>();
@@ -39,6 +30,9 @@ namespace DataBaseMaker
             openFileDialog1.Multiselect = true;
             openFileDialog1.Title = "My Image Browser";
             DialogResult dr = this.openFileDialog1.ShowDialog();
+            var name = Microsoft.VisualBasic.Interaction.InputBox("What's the catogery of marker?(name)", "Name", "AprilTags");
+            var input = Microsoft.VisualBasic.Interaction.InputBox("What's the size of marker?(how many square blocks)", "Size", "7");
+            int size = Int32.Parse(input);
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
                 
@@ -47,7 +41,8 @@ namespace DataBaseMaker
                     var resultString = Regex.Match(file, @"\d+").Value;
                     int id = Int32.Parse(resultString);
                     Bitmap image = new Bitmap(file);
-                    var newmarker = new Marker(image, 7, id);
+                    var newmarker = new Marker(image, size, id);
+                    newmarker.category = name;
                     markers.Add(newmarker);
                     MarkerPlainDatas.Add(newmarker.PlainData);
                     listBox1.Items.Add(newmarker);
@@ -73,9 +68,23 @@ namespace DataBaseMaker
             JavaScriptSerializer ser = new JavaScriptSerializer();
             string outputJSON = "";
             outputJSON = ser.Serialize(MarkerPlainDatas);
-            File.WriteAllText("output.db", outputJSON);
-
             
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "db (*.db)|*.db|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string name = saveFileDialog1.FileName;
+                // Write to the file name selected.
+                // ... You can write the text from a TextBox instead of a string literal.
+                File.WriteAllText(name, outputJSON);
+            }
+
+
 
         }
 

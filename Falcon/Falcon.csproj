@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug32</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,11 +10,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Falcon</RootNamespace>
     <AssemblyName>Falcon</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
@@ -80,6 +82,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="RhinoCommon">
@@ -100,8 +103,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FalconEye.cs" />
-    <Compile Include="FtoBitmap.cs" />
+    <Compile Include="Matrixs\CreateNUScaleMatrix.cs" />
+    <Compile Include="Matrixs\CreateScaleMatrix.cs" />
+    <Compile Include="Matrixs\CreateTranslationMatrix.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Vision\BitmapToFly.cs" />
+    <Compile Include="Vision\FalconEye.cs" />
+    <Compile Include="Vision\FlytoBitmap.cs" />
     <Compile Include="GlyphClasses\ExtractedGlyphData.cs" />
     <Compile Include="GlyphClasses\Glyph.cs" />
     <Compile Include="GlyphClasses\GlyphDatabase.cs" />
@@ -111,60 +123,132 @@
     <Compile Include="GlyphClasses\GlyphVisualizationData.cs" />
     <Compile Include="GlyphClasses\SquareBinaryGlyphRecognizer.cs" />
     <Compile Include="GlyphClasses\VisualizationType.cs" />
-    <Compile Include="LoadImage.cs" />
-    <Compile Include="MarkerData.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Vision\LoadImage.cs" />
+    <Compile Include="Vision\MarkerData.cs" />
+    <Compile Include="Matrixs\CreateMatrixFromYawPitchRoll.cs" />
+    <Compile Include="Matrixs\CreateMatrixFromAxisAngle.cs" />
+    <Compile Include="Matrixs\CreateMatrixFromQuaternion.cs" />
+    <Compile Include="Matrixs\MatrixDecompose.cs" />
+    <Compile Include="Matrixs\MatrixAdd.cs" />
+    <Compile Include="Matrixs\MatrixDeterminant.cs" />
+    <Compile Include="Matrixs\MatrixEqual.cs" />
+    <Compile Include="Matrixs\MatrixIdentity.cs" />
+    <Compile Include="Matrixs\MatrixInvert.cs" />
+    <Compile Include="Matrixs\MatrixLerp.cs" />
+    <Compile Include="Matrixs\MatrixMultiply.cs" />
+    <Compile Include="Matrixs\MatrixNegate.cs" />
+    <Compile Include="Matrixs\MatrixScale.cs" />
+    <Compile Include="Matrixs\MatrixSubtract.cs" />
+    <Compile Include="Matrixs\MatrixTransform.cs" />
+    <Compile Include="Matrixs\MatrixTranslation.cs" />
+    <Compile Include="Matrixs\MatrixTranspose.cs" />
+    <Compile Include="Quaternions\CreateQuaternionFromYawPitchRoll.cs" />
+    <Compile Include="Quaternions\CreateQuaternionFromAxisAngle.cs" />
+    <Compile Include="Quaternions\CreateQuaternionFromMatrix.cs" />
+    <Compile Include="Quaternions\CreateQuaternionFromXYZW.cs" />
+    <Compile Include="Quaternions\DeconstructQuaternion.cs" />
+    <Compile Include="Quaternions\QuaternionAdd.cs" />
+    <Compile Include="Quaternions\QuaternionConcatenate.cs" />
+    <Compile Include="Quaternions\QuaternionConjugate .cs" />
+    <Compile Include="Quaternions\QuaternionDivide.cs" />
+    <Compile Include="Quaternions\QuaternionDot.cs" />
+    <Compile Include="Quaternions\QuaternionEqual.cs" />
+    <Compile Include="Quaternions\QuaternionInverse.cs" />
+    <Compile Include="Quaternions\QuaternionLength.cs" />
+    <Compile Include="Quaternions\QuaternionLerp.cs" />
+    <Compile Include="Quaternions\QuaternionMultiply.cs" />
+    <Compile Include="Quaternions\QuaternionNegate.cs" />
+    <Compile Include="Quaternions\QuaternionNormalize.cs" />
+    <Compile Include="Quaternions\QuaternionScale.cs" />
+    <Compile Include="Quaternions\QuaternionSlerp.cs" />
+    <Compile Include="Quaternions\QuaternionSubtract .cs" />
     <Compile Include="utils\Marker.cs" />
     <Compile Include="utils\Utils.cs" />
-    <Compile Include="utils\VideoCaptureForm.cs">
+    <Compile Include="Vision\VideoCaptureForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="utils\VideoCaptureForm.Designer.cs">
+    <Compile Include="Vision\VideoCaptureForm.Designer.cs">
       <DependentUpon>VideoCaptureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="utils\VideoSourcePlayer.cs">
+    <Compile Include="Vision\VideoSourcePlayer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WebcamStream.cs" />
-    <Compile Include="ShowImage.cs" />
+    <Compile Include="Vision\WebcamStream.cs" />
+    <Compile Include="Vision\ShowImage.cs" />
     <Compile Include="FalconInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoadImageAttributes.cs" />
-    <Compile Include="ShowImageAttributes.cs" />
-    <Compile Include="WebcamStreamAttributes.cs" />
+    <Compile Include="Vision\LoadImageAttributes.cs" />
+    <Compile Include="Vision\ShowImageAttributes.cs" />
+    <Compile Include="Vision\WebcamStreamAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="utils\VideoCaptureForm.resx">
+    <EmbeddedResource Include="Vision\VideoCaptureForm.resx">
       <DependentUpon>VideoCaptureForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="utils\VideoSourcePlayer.resx">
+    <EmbeddedResource Include="Vision\VideoSourcePlayer.resx">
       <DependentUpon>VideoSourcePlayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Resources\checkerpattern.jpg" />
-    <None Include="Resources\NyID.db" />
+    <None Include="Resources\MarkerDataBase\AprilTag.db" />
+    <None Include="Resources\MarkerDataBase\NyID.db" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\NoImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons\showimage.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons\loadimage.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons\ftoimg.jpg" />
+    <Content Include="Resources\icons\Matrix\CreateMatrixFromAxisAngle.png" />
+    <Content Include="Resources\icons\Matrix\CreateMatrixFromQuaternion.png" />
+    <Content Include="Resources\icons\Matrix\CreateMatrixFromYawPitchRoll.png" />
+    <Content Include="Resources\icons\Matrix\CreateNUScaleMatrix.png" />
+    <Content Include="Resources\icons\Matrix\CreateScaleMatrix.png" />
+    <Content Include="Resources\icons\Matrix\CreateTranslationMatrix.png" />
+    <Content Include="Resources\icons\Matrix\MatrixAdd.png" />
+    <Content Include="Resources\icons\Matrix\MatrixDecompose.png" />
+    <Content Include="Resources\icons\Matrix\MatrixDeterminant.png" />
+    <Content Include="Resources\icons\Matrix\MatrixEqual.png" />
+    <Content Include="Resources\icons\Matrix\MatrixIdentity.png" />
+    <Content Include="Resources\icons\Matrix\MatrixInvert.png" />
+    <Content Include="Resources\icons\Matrix\MatrixLerp.png" />
+    <Content Include="Resources\icons\Matrix\MatrixMultiply.png" />
+    <Content Include="Resources\icons\Matrix\MatrixNegate.png" />
+    <Content Include="Resources\icons\Matrix\MatrixScale.png" />
+    <Content Include="Resources\icons\Matrix\MatrixSubtract.png" />
+    <Content Include="Resources\icons\Matrix\MatrixTransform.png" />
+    <Content Include="Resources\icons\Matrix\MatrixTranslation.png" />
+    <Content Include="Resources\icons\Matrix\MatrixTranspose.png" />
+    <Content Include="Resources\icons\Quaternion\CreateQuaternionFromAxisAngle.png" />
+    <Content Include="Resources\icons\Quaternion\CreateQuaternionFromMatrix.png" />
+    <Content Include="Resources\icons\Quaternion\CreateQuaternionFromXYZW.png" />
+    <Content Include="Resources\icons\Quaternion\CreateQuaternionFromYawPitchRoll.png" />
+    <Content Include="Resources\icons\Quaternion\DeconstructQuaternion.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionAdd.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionConcatenate.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionConjugate .png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionDivide.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionDot.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionEqual.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionInverse.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionLength.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionLerp.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionMultiply.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionNegate.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionNormalize.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionScale.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionSlerp.png" />
+    <Content Include="Resources\icons\Quaternion\QuaternionSubtract .png" />
+    <Content Include="Resources\icons\Vision\BitmaptoFly.png" />
+    <Content Include="Resources\icons\Vision\checkerpattern.jpg" />
+    <Content Include="Resources\icons\Vision\FalconEye.png" />
+    <Content Include="Resources\icons\Vision\FlytoBitmap.png" />
+    <Content Include="Resources\icons\Vision\Loadimage.png" />
+    <Content Include="Resources\icons\Vision\NoImage.png" />
+    <Content Include="Resources\icons\Vision\Showimage.png" />
+    <Content Include="Resources\icons\Vision\WebcamStream.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -183,6 +267,7 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </StartArguments>
     <StartAction>Program</StartAction>
     <StartProgram>c:\Program Files (x86)\Rhinoceros 5\System\Rhino4.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <FallbackCulture>en-US</FallbackCulture>
@@ -193,5 +278,6 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </StartArguments>
     <StartAction>Program</StartAction>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
 </Project>

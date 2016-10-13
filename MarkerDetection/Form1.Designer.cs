@@ -1,4 +1,4 @@
-﻿namespace DataBaseMaker
+﻿namespace MarkerDetection
 {
     partial class Form1
     {

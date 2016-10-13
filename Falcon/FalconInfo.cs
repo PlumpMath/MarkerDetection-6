@@ -42,7 +42,7 @@ namespace Falcon
             get
             {
                 //Return a string identifying you or your company.
-                return "";
+                return "Jingcheng Chen";
             }
         }
         public override string AuthorContact
@@ -50,7 +50,7 @@ namespace Falcon
             get
             {
                 //Return a string representing your preferred contact details.
-                return "";
+                return "mail@chenjingcheng.com";
             }
         }
     }

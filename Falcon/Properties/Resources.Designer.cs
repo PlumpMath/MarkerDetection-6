@@ -61,6 +61,25 @@ namespace Falcon.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{&quot;ID&quot;:&quot;0&quot;,&quot;blocknumber&quot;:&quot;8&quot;,&quot;data&quot;:&quot;0000000001101010001110100011000001010000001011000000100000000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;1&quot;,&quot;blocknumber&quot;:&quot;8&quot;,&quot;data&quot;:&quot;0000000001101100001011100111100000110000010110100001001000000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;2&quot;,&quot;blocknumber&quot;:&quot;8&quot;,&quot;data&quot;:&quot;0000000001101110001001000100000000010010000010000001110000000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;3&quot;,&quot;blocknumber&quot;:&quot;8&quot;,&quot;data&quot;:&quot;0000000001110010000011100100111001010010011001000011000000000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;4&quot;,&quot;blocknumber&quot;:&quot;8&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AprilTag {
+            get {
+                return ResourceManager.GetString("AprilTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BitmaptoFly {
+            get {
+                object obj = ResourceManager.GetObject("BitmaptoFly", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap checkerpattern {
@@ -73,9 +92,9 @@ namespace Falcon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ftoimg {
+        internal static System.Drawing.Bitmap CreateMatrixFromAxisAngle {
             get {
-                object obj = ResourceManager.GetObject("ftoimg", resourceCulture);
+                object obj = ResourceManager.GetObject("CreateMatrixFromAxisAngle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +102,269 @@ namespace Falcon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loadimage {
+        internal static System.Drawing.Bitmap CreateMatrixFromQuaternion {
             get {
-                object obj = ResourceManager.GetObject("loadimage", resourceCulture);
+                object obj = ResourceManager.GetObject("CreateMatrixFromQuaternion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateMatrixFromYawPitchRoll {
+            get {
+                object obj = ResourceManager.GetObject("CreateMatrixFromYawPitchRoll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateNUScaleMatrix {
+            get {
+                object obj = ResourceManager.GetObject("CreateNUScaleMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateQuaternionFromAxisAngle {
+            get {
+                object obj = ResourceManager.GetObject("CreateQuaternionFromAxisAngle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateQuaternionFromMatrix {
+            get {
+                object obj = ResourceManager.GetObject("CreateQuaternionFromMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateQuaternionFromXYZW {
+            get {
+                object obj = ResourceManager.GetObject("CreateQuaternionFromXYZW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateQuaternionFromYawPitchRoll {
+            get {
+                object obj = ResourceManager.GetObject("CreateQuaternionFromYawPitchRoll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateScaleMatrix {
+            get {
+                object obj = ResourceManager.GetObject("CreateScaleMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateTranslationMatrix {
+            get {
+                object obj = ResourceManager.GetObject("CreateTranslationMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeconstructQuaternion {
+            get {
+                object obj = ResourceManager.GetObject("DeconstructQuaternion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FalconEye {
+            get {
+                object obj = ResourceManager.GetObject("FalconEye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FlytoBitmap {
+            get {
+                object obj = ResourceManager.GetObject("FlytoBitmap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Loadimage1 {
+            get {
+                object obj = ResourceManager.GetObject("Loadimage1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixAdd {
+            get {
+                object obj = ResourceManager.GetObject("MatrixAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixDecompose {
+            get {
+                object obj = ResourceManager.GetObject("MatrixDecompose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixDeterminant {
+            get {
+                object obj = ResourceManager.GetObject("MatrixDeterminant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixEqual {
+            get {
+                object obj = ResourceManager.GetObject("MatrixEqual", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixIdentity {
+            get {
+                object obj = ResourceManager.GetObject("MatrixIdentity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixInvert {
+            get {
+                object obj = ResourceManager.GetObject("MatrixInvert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixLerp {
+            get {
+                object obj = ResourceManager.GetObject("MatrixLerp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixMultiply {
+            get {
+                object obj = ResourceManager.GetObject("MatrixMultiply", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixNegate {
+            get {
+                object obj = ResourceManager.GetObject("MatrixNegate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixScale {
+            get {
+                object obj = ResourceManager.GetObject("MatrixScale", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixSubtract {
+            get {
+                object obj = ResourceManager.GetObject("MatrixSubtract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixTransform {
+            get {
+                object obj = ResourceManager.GetObject("MatrixTransform", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixTranslation {
+            get {
+                object obj = ResourceManager.GetObject("MatrixTranslation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MatrixTranspose {
+            get {
+                object obj = ResourceManager.GetObject("MatrixTranspose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -101,7 +380,7 @@ namespace Falcon.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;ID&quot;:&quot;1&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000011000111110001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;2&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000101100111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;3&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000001000111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;4&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000110100111110001110001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;5&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000010100111100001110001010100000000&quot;, [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;ID&quot;:&quot;0&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000111100111110001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;1&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000011000111110001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;2&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000101100111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;3&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000001000111100001111001010100000000&quot;,&quot;category&quot;:&quot;NyID&quot;},{&quot;ID&quot;:&quot;4&quot;,&quot;blocknumber&quot;:&quot;7&quot;,&quot;data&quot;:&quot;0000000011111000110100111110001110001010100000000&quot;, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string NyID {
             get {
@@ -112,9 +391,169 @@ namespace Falcon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap showimage {
+        internal static System.Drawing.Bitmap QuaternionAdd {
             get {
-                object obj = ResourceManager.GetObject("showimage", resourceCulture);
+                object obj = ResourceManager.GetObject("QuaternionAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionConcatenate {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionConcatenate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionConjugate {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionConjugate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionDivide {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionDivide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionDot {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionDot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionEqual {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionEqual", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionInverse {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionInverse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionLength {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionLength", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionLerp {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionLerp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionMultiply {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionMultiply", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionNegate {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionNegate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionNormalize {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionNormalize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionScale {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionScale", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionSlerp {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionSlerp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuaternionSubtract {
+            get {
+                object obj = ResourceManager.GetObject("QuaternionSubtract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Showimage1 {
+            get {
+                object obj = ResourceManager.GetObject("Showimage1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WebcamStream {
+            get {
+                object obj = ResourceManager.GetObject("WebcamStream", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
