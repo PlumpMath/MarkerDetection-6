@@ -80,10 +80,20 @@ namespace Falcon.Vision
             transformations = new List<Matrix>();
             planes = new List<Plane>();
 
-           
-            //change imageprocesser settings
 
-            imageProcessor.CameraFocalLength = bmap.Width;
+            //change imageprocesser settings
+            try
+            {
+                imageProcessor.CameraFocalLength = bmap.Width;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            
+           
+
             imageProcessor.GlyphSize = (float)size;
             detectMarkers();
 

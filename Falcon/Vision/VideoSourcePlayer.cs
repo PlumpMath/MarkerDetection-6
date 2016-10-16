@@ -228,11 +228,15 @@ namespace Falcon.Vision
 
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
+            Bitmap image = null;
             if (this.requestedToStop)
                 return;
-            Bitmap image = (Bitmap)eventArgs.Frame.Clone();
-            if (this.NewFrame != null)
+
+            int f = eventArgs.Frame.Flags;
+            image = (Bitmap) eventArgs.Frame.Clone();
+           if (this.NewFrame != null)
                 this.NewFrame((object)this, ref image);
+
             lock (this.sync)
             {
                 if (this.currentFrame != null)

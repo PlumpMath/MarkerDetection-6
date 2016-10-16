@@ -71,14 +71,8 @@ namespace Falcon.Vision
 
         private void videoSourcePlayer_NewFrame(object sender, ref Bitmap image)
         {
-            try
-            {
-                currentFrame = (Bitmap) image.Clone();
-            }
-            catch (InvalidCastException ex)
-            {
-                
-            }
+            currentFrame = (Bitmap)image.Clone();
+            
         }
 
         private void OpenVideoSource(IVideoSource source)

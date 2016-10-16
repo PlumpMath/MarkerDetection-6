@@ -50,11 +50,12 @@ namespace Falcon.Vision
                 return;
             try
             {
+                int f = destination.Flags;
                 WindowsBitmap = (Bitmap)destination;
             }
-            catch (InvalidCastException ex)
+            catch (Exception)
             {
-                this.AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, ex.Message.ToString());
+                return;
             }
             if (WindowsBitmap == null)
                 return;

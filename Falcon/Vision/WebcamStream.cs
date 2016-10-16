@@ -9,37 +9,50 @@ namespace Falcon.Vision
     public class WebcamStream : GH_Component
     {
         public Bitmap image;
+        public Bitmap buffer;
         public VideoCaptureForm iVideoCaptureForm;
 
         public WebcamStream()
-          : base("WebcamStream", "WebcamStream",
-              "start webcam video stream",
-              "Falcon", "Vision")
+            : base("WebcamStream", "WebcamStream",
+                "start webcam video stream",
+                "Falcon", "Vision")
         {
             iVideoCaptureForm = new VideoCaptureForm();
+            image = null;
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            
+
         }
 
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("OutputImage", "O", "Output image data", GH_ParamAccess.item);
+            pManager.AddGenericParameter("OutputBitmap", "B", "Output bitmap data", GH_ParamAccess.item);
         }
-        
+
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             
             if (this.iVideoCaptureForm.currentFrame != null)
             {
-                image?.Dispose();
-                image = this.iVideoCaptureForm.currentFrame;
+                buffer?.Dispose();
+                buffer = this.iVideoCaptureForm.currentFrame;
+                try
+                {
+                    int s = buffer.Flags;
+                    image?.Dispose();
+                    image = (Bitmap)buffer.Clone();
+                }
+                catch (Exception)
+                {
+                }
             }
+            
+            
+            if(image !=null) DA.SetData(0, image);
 
-            DA.SetData(0, image);
             ExpireSolution(true);
 
         }

@@ -35,9 +35,7 @@ namespace Falcon.Vision
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string destination1 = "";
-            GH_ObjectWrapper ghObjectWrapper = new GH_ObjectWrapper();
-            if (!DA.GetData<string>(0, ref destination1))
-                return;
+            if (!DA.GetData<string>(0, ref destination1))return;
             if (!File.Exists(destination1))
             {
                 this.AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Image File does not exist");
@@ -53,40 +51,13 @@ namespace Falcon.Vision
                     graphics.DrawImage((Image)bitmap1, new Rectangle(0, 0, bitmap1.Width, bitmap1.Height), new Rectangle(0, 0, bitmap1.Width, bitmap1.Height), GraphicsUnit.Pixel);
                     graphics.Dispose();
                     this.WindowsBitmap = (Bitmap) bitmap1.Clone();
-                    /*
-                    this.WindowsBitmap = new Bitmap(bitmap2.Width, bitmap2.Height);
-                    BitmapData bitmapdata = bitmap2.LockBits(new Rectangle(0, 0, bitmap2.Width, bitmap2.Height), ImageLockMode.ReadOnly, bitmap2.PixelFormat);
-                    IntPtr scan0 = bitmapdata.Scan0;
-                    int length = bitmapdata.Stride * bitmap2.Height;
-                    byte[] destination2 = new byte[length];
-                    Marshal.Copy(scan0, destination2, 0, length);
-                    int index1 = 0;
-                    for (int index2 = bitmap2.Height - 1; index2 >= 0; --index2)
-                    {
-                        for (int index3 = 0; index3 < bitmap2.Width; ++index3)
-                        {
-                            double num1 = (double)destination2[index1];
-                            double num2 = (double)destination2[index1 + 1];
-                            double num3 = (double)destination2[index1 + 2];
-                            double num4 = (double)destination2[index1 + 3];
-                            this.wi.pixels[index3, index2].B = (byte)num1;
-                            this.theBitmap.pixels[index3, index2].G = (byte)num2;
-                            this.theBitmap.pixels[index3, index2].R = (byte)num3;
-                            this.theBitmap.pixels[index3, index2].A = (byte)num4;
-                            this.theBitmap.pixels[index3, index2].V = (byte)(((int)this.theBitmap.pixels[index3, index2].R + (int)this.theBitmap.pixels[index3, index2].G + (int)this.theBitmap.pixels[index3, index2].B) / 3);
-                            index1 += 4;
-                        }
-                    }
-                    this.theBitmap.ComputeGradient();
-                    bitmap2.UnlockBits(bitmapdata);
-                    */
+                    
                 }
                 catch (InvalidCastException ex)
                 {
                     this.AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, ex.Message.ToString());
                 }
-                if (this.WindowsBitmap == null)
-                    return;
+                if (this.WindowsBitmap == null)return;
                 DA.SetData(0, (object)this.WindowsBitmap);
             }
         }
