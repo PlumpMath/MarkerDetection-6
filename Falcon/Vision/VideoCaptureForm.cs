@@ -19,10 +19,12 @@ namespace Falcon.Vision
         // stop watch used for measuring FPS
         private Stopwatch stopWatch = null;
         public Bitmap currentFrame;
+        public bool iftopMost;
 
         public VideoCaptureForm()
         {
             InitializeComponent();
+            iftopMost = true;
             try
             {
                 this.videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -51,10 +53,7 @@ namespace Falcon.Vision
             
         }
 
-        private void VideoCaptureForm_Load(object sender, EventArgs e)
-        {
-            
-        }
+ 
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
@@ -208,5 +207,36 @@ namespace Falcon.Vision
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            iftopMost = checkBox1.Checked;
+            this.TopMost = iftopMost;
+        }
+
+        private void VideoCaptureForm_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                this.TopMost = false;
+                this.Hide();
+                notifyIcon1.ShowBalloonTip(2000,"FalconWebcam","Falcon webcam is still running, click the icon in system tray to show webcam again.",ToolTipIcon.Info);
+            }
+        }
+
+        
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.TopMost = iftopMost;
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.TopMost = iftopMost;
+            this.WindowState = FormWindowState.Normal;
+        }
     }
 }

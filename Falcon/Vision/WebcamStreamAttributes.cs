@@ -14,6 +14,7 @@ namespace Falcon.Vision
         
         public override GH_ObjectResponse RespondToMouseDoubleClick(GH_Canvas sender, GH_CanvasMouseEvent e)
         {
+            
             (this.DocObject as WebcamStream).ShowWebcamForm();
             return base.RespondToMouseDoubleClick(sender, e);
         }

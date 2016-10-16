@@ -232,6 +232,16 @@ namespace Falcon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_small {
+            get {
+                object obj = ResourceManager.GetObject("logo_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MatrixAdd {
             get {
                 object obj = ResourceManager.GetObject("MatrixAdd", resourceCulture);
@@ -385,6 +395,16 @@ namespace Falcon.Properties {
         internal static string NyID {
             get {
                 return ResourceManager.GetString("NyID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PathFinding {
+            get {
+                object obj = ResourceManager.GetObject("PathFinding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

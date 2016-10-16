@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoCaptureForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxVideoResolution = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.fpsLabel = new System.Windows.Forms.Label();
-            this.videoSourcePlayer1 = new VideoSourcePlayer();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.videoSourcePlayer1 = new Falcon.Vision.VideoSourcePlayer();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,11 +56,11 @@
             this.groupBox1.Controls.Add(this.comboBoxVideoSource);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(899, 14);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(337, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(363, 272);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Size = new System.Drawing.Size(136, 114);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VideoCapture Settings";
@@ -65,17 +68,18 @@
             // comboBoxVideoResolution
             // 
             this.comboBoxVideoResolution.FormattingEnabled = true;
-            this.comboBoxVideoResolution.Location = new System.Drawing.Point(9, 191);
-            this.comboBoxVideoResolution.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxVideoResolution.Location = new System.Drawing.Point(3, 80);
+            this.comboBoxVideoResolution.Margin = new System.Windows.Forms.Padding(1);
             this.comboBoxVideoResolution.Name = "comboBoxVideoResolution";
-            this.comboBoxVideoResolution.Size = new System.Drawing.Size(317, 21);
+            this.comboBoxVideoResolution.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVideoResolution.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 153);
+            this.label3.Location = new System.Drawing.Point(2, 64);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 2;
@@ -84,10 +88,10 @@
             // comboBoxVideoSource
             // 
             this.comboBoxVideoSource.FormattingEnabled = true;
-            this.comboBoxVideoSource.Location = new System.Drawing.Point(9, 88);
-            this.comboBoxVideoSource.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxVideoSource.Location = new System.Drawing.Point(3, 37);
+            this.comboBoxVideoSource.Margin = new System.Windows.Forms.Padding(1);
             this.comboBoxVideoSource.Name = "comboBoxVideoSource";
-            this.comboBoxVideoSource.Size = new System.Drawing.Size(317, 21);
+            this.comboBoxVideoSource.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVideoSource.TabIndex = 1;
             this.comboBoxVideoSource.SelectedIndexChanged += new System.EventHandler(this.comboBoxVideoSource_SelectedIndexChanged);
             // 
@@ -95,7 +99,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 51);
+            this.label2.Location = new System.Drawing.Point(2, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 0;
@@ -104,10 +109,10 @@
             // buttonStart
             // 
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.Location = new System.Drawing.Point(12, 43);
-            this.buttonStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonStart.Location = new System.Drawing.Point(4, 18);
+            this.buttonStart.Margin = new System.Windows.Forms.Padding(1);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(153, 56);
+            this.buttonStart.Size = new System.Drawing.Size(57, 23);
             this.buttonStart.TabIndex = 3;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -116,10 +121,10 @@
             // buttonPause
             // 
             this.buttonPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPause.Location = new System.Drawing.Point(12, 120);
-            this.buttonPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPause.Location = new System.Drawing.Point(4, 50);
+            this.buttonPause.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPause.Name = "buttonPause";
-            this.buttonPause.Size = new System.Drawing.Size(153, 56);
+            this.buttonPause.Size = new System.Drawing.Size(57, 23);
             this.buttonPause.TabIndex = 4;
             this.buttonPause.Text = "Pause";
             this.buttonPause.UseVisualStyleBackColor = true;
@@ -128,10 +133,10 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(12, 197);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCancel.Location = new System.Drawing.Point(4, 83);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(1);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(153, 56);
+            this.buttonCancel.Size = new System.Drawing.Size(57, 23);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -144,11 +149,11 @@
             this.groupBox2.Controls.Add(this.buttonPause);
             this.groupBox2.Controls.Add(this.buttonStart);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1085, 337);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(407, 141);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(176, 272);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBox2.Size = new System.Drawing.Size(66, 114);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
@@ -159,40 +164,63 @@
             // fpsLabel
             // 
             this.fpsLabel.AutoSize = true;
-            this.fpsLabel.Location = new System.Drawing.Point(901, 368);
-            this.fpsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fpsLabel.Location = new System.Drawing.Point(342, 234);
+            this.fpsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fpsLabel.Name = "fpsLabel";
-            this.fpsLabel.Size = new System.Drawing.Size(0, 31);
+            this.fpsLabel.Size = new System.Drawing.Size(0, 13);
             this.fpsLabel.TabIndex = 8;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(337, 128);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "AlwaysOnTop";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipText = "FalconWebcam";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "FalconWebcam";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // videoSourcePlayer1
             // 
-            this.videoSourcePlayer1.Location = new System.Drawing.Point(15, 14);
-            this.videoSourcePlayer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.videoSourcePlayer1.Location = new System.Drawing.Point(6, 6);
+            this.videoSourcePlayer1.Margin = new System.Windows.Forms.Padding(1);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
-            this.videoSourcePlayer1.Size = new System.Drawing.Size(853, 595);
+            this.videoSourcePlayer1.Size = new System.Drawing.Size(320, 250);
             this.videoSourcePlayer1.TabIndex = 7;
             this.videoSourcePlayer1.Text = "videoSourcePlayer1";
             this.videoSourcePlayer1.VideoSource = null;
-            this.videoSourcePlayer1.NewFrame += new VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
+            this.videoSourcePlayer1.NewFrame += new Falcon.Vision.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
             // 
             // VideoCaptureForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1291, 626);
+            this.ClientSize = new System.Drawing.Size(484, 263);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.fpsLabel);
             this.Controls.Add(this.videoSourcePlayer1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VideoCaptureForm";
             this.Text = "VideoCaptureForm";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoCaptureForm_FormClosing);
-            this.Load += new System.EventHandler(this.VideoCaptureForm_Load);
+            this.Resize += new System.EventHandler(this.VideoCaptureForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -214,5 +242,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label fpsLabel;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

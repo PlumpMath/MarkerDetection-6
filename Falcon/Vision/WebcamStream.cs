@@ -17,7 +17,7 @@ namespace Falcon.Vision
                 "start webcam video stream",
                 "Falcon", "Vision")
         {
-            iVideoCaptureForm = new VideoCaptureForm();
+            
             image = null;
         }
 
@@ -34,23 +34,24 @@ namespace Falcon.Vision
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            
-            if (this.iVideoCaptureForm.currentFrame != null)
+            if (this.iVideoCaptureForm != null)
             {
-                buffer?.Dispose();
-                buffer = this.iVideoCaptureForm.currentFrame;
-                try
+                if (this.iVideoCaptureForm.currentFrame != null)
                 {
-                    int s = buffer.Flags;
-                    image?.Dispose();
-                    image = (Bitmap)buffer.Clone();
-                }
-                catch (Exception)
-                {
+                    buffer?.Dispose();
+                    buffer = this.iVideoCaptureForm.currentFrame;
+                    try
+                    {
+                        int s = buffer.Flags;
+                        image?.Dispose();
+                        image = (Bitmap) buffer.Clone();
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
             }
-            
-            
+
             if(image !=null) DA.SetData(0, image);
 
             ExpireSolution(true);

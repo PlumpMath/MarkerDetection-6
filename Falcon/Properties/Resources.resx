@@ -268,4 +268,10 @@
   <data name="CreateTranslationMatrix" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\matrix\createtranslationmatrix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PathFinding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\motion\pathfinding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\logo_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

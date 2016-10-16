@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Drawing;
-using Falcon.Properties;
 using Grasshopper.Kernel;
 
-namespace Falcon
+namespace Falcon.PathFinding
 {
-    public class FalconInfo : GH_AssemblyInfo
+    public class AstarPathFinderInfo : GH_AssemblyInfo
     {
         public override string Name
         {
             get
             {
-                return "Falcon";
+                return "AstarPathFinder";
             }
         }
         public override Bitmap Icon
@@ -19,7 +18,7 @@ namespace Falcon
             get
             {
                 //Return a 24x24 pixel bitmap to represent this GHA library.
-                return Resources.logo_small;
+                return null;
             }
         }
         public override string Description
@@ -27,14 +26,14 @@ namespace Falcon
             get
             {
                 //Return a short string describing the purpose of this GHA library.
-                return "A grasshopper library mainly dealing with 4x4 matrix mathematics and quaternion mathematics. It also provides basic marker detection and pathfinding functions.";
+                return "";
             }
         }
         public override Guid Id
         {
             get
             {
-                return new Guid("90a9231b-f938-4ff6-baef-f3be614a52e7");
+                return new Guid("3f8d8a4f-e94f-44f0-928e-e57c1d30b1aa");
             }
         }
 
@@ -43,7 +42,7 @@ namespace Falcon
             get
             {
                 //Return a string identifying you or your company.
-                return "Jingcheng Chen";
+                return "";
             }
         }
         public override string AuthorContact
@@ -51,7 +50,7 @@ namespace Falcon
             get
             {
                 //Return a string representing your preferred contact details.
-                return "mail@chenjingcheng.com";
+                return "";
             }
         }
     }
