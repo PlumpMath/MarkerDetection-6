@@ -6,7 +6,7 @@ This is a grasshopper plug-in that deals with **Conversion among Matrix4x4, Quat
 **Marker Detection**<br>
 [![](http://img.youtube.com/vi/csvAajnhGM0/0.jpg)](http://www.youtube.com/watch?v=csvAajnhGM0)<br>
 
-<img src="http://static.food4rhino.com/s3fs-public/users-files/ccc159/app/falcon-screenshot.jpg" style="width:600px">
+<img src="http://static.food4rhino.com/s3fs-public/users-files/ccc159/app/falcon-screenshot.jpg" width="500"/>
 
 It has 4 parts. First part is the calculation among 4x4 Matrix, convert from other rotation definition to Matrix. Second part is the calculation among Quaternion, convert from other rotation definition to Quaternion. Third part is Marker Detection, Load image as System Bitmap, Show image, Webcam, and conversion between firefly image in case you need to use some functions from firefly. Fourth part is a path finding component that seeks shortest path between two points with given obstacles.
 
@@ -26,3 +26,6 @@ I have tested this project, but it is the first release and it might contain sti
 *Right-click the file > Properties > make sure there is no "blocked" text
 *Restart Rhino and Grasshopper
 *In order to use marker detection, you need to download markers from [AprilTags](http://www.dotproduct3d.com/assets/pdf/apriltags.pdf) or [NyID](http://sixwish.jp/AR/Marker/idMarker/). Currently the plugin support Apriltags and NyID, in case you want to use specific marker please contact me to add the database.
+
+### Bug: 
+There's probably bug when converting from or to euler, need to check again.
