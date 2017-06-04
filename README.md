@@ -3,6 +3,11 @@ This repository is documented at Food4Rhino called **Falcon**. Please refer to [
 
 This is a grasshopper plug-in that deals with **Conversion among Matrix4x4, Quaternion and Euler** in grasshopper, as well as offers **Marker Detection** to get position of the markers. <br>
 
+**Marker Detection**<br>
+[![](http://img.youtube.com/vi/csvAajnhGM0/0.jpg)](http://www.youtube.com/watch?v=csvAajnhGM0)<br>
+
+<img src="http://static.food4rhino.com/s3fs-public/users-files/ccc159/app/falcon-screenshot.jpg" style="width:600px">
+
 It has 4 parts. First part is the calculation among 4x4 Matrix, convert from other rotation definition to Matrix. Second part is the calculation among Quaternion, convert from other rotation definition to Quaternion. Third part is Marker Detection, Load image as System Bitmap, Show image, Webcam, and conversion between firefly image in case you need to use some functions from firefly. Fourth part is a path finding component that seeks shortest path between two points with given obstacles.
 
 To use marker detection, you need to print out your markers or use it on your pad or phone(not recommended due to strong reflection of screen). Current supported markers are [AprilTags](http://www.dotproduct3d.com/assets/pdf/apriltags.pdf) and [NyID](http://sixwish.jp/AR/Marker/idMarker/). Remember, a white boarder around marker is necessary for detection. (markers should have at least one white spot at each row and column, due to AForge limitation. So not all the markers in above links would work.)
